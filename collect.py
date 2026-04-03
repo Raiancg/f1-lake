@@ -2,7 +2,8 @@
 import pandas as pd
 pd.set_option('display.max_columns', None)
 import fastf1
-
+import time
+import argparse
 #%%
 
 class CollectResults:
@@ -42,10 +43,18 @@ class CollectResults:
                 
     def process_years(self):
         for year in self.years:
+            print(f"Coletando dados do ano {year}")
             self.process_year_modes(year)
+            time.sleep(10)
 # %%
 
-collect = CollectResults([2023,2024,2025],["R","S"])
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--years","-y",nargs="+", type=int)
+    parser.add_argument("--modes","-m",nargs="+")
 
-#%%
-collect.process_years()
+    args = parser.parse_args()
+
+    collect = CollectResults(args.years,args.modes)
+    collect.process_years()
+# %%
