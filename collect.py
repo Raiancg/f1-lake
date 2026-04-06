@@ -72,4 +72,3 @@ if __name__ == "__main__":
         years = [i for i in range(args.start, args.stop+1)]
         collect = CollectResults(years, args.modes)
     collect.process_years()
-# %%

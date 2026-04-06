@@ -52,17 +52,3 @@ class Sender:
         files = [i for i in os.listdir(folder) if i.endswith(".parquet")]
         for f in tqdm(files):
             self.process_file(os.path.join(folder,f)) 
-# %%
-parser  = argparse.ArgumentParser()
-parser.add_argument("--bucket",type=str)
-parser.add_argument("--bucket_path",default="f1/results/",type=str)
-parser.add_argument("--folder",default="data",type=str)
-args = parser.parse_args()
-
-
-if args.bucket:
-    send = Sender(args.bucket,args.bucket_path)
-    send.process_folder(args.folder)
-else:
-    print("Sem bucket definido")
-# %%
