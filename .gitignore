@@ -1,0 +1,18 @@
+# Dados (Pasta onde seu script salva os Parquets)
+data/
+*.parquet
+*.csv
+
+# Cache do FastF1 (Evita subir megabytes de cache local)
+cache/
+
+# Python (Arquivos temporários do sistema)
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+.venv/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
